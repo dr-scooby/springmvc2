@@ -3,12 +3,17 @@
  */
 package com.jah.springmvc;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * The Bean, Alien
  */
+@Entity
 public class Alien {
 
-	private int aid; // alien ID
+	@Id
+	private int aid; // ** alien ID, has to be same name as in the table in the database **
 	private String name;
 	
 	// default Constructor
