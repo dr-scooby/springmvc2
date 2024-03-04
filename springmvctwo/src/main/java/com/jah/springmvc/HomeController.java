@@ -50,10 +50,12 @@ public class HomeController {
 		Alien al = new Alien();
 		al.setAid(aid);
 		al.setName(name);
+		System.out.println("Saving Alien: " + al.toString());
+		dao.addAlien(al);
+		m.addAttribute("result", dao.getAliens());
+		//m.addAttribute("alien", al);
 		
-		m.addAttribute("alien", al);
-		
-		return "AlienResults";
+		return "showAliens";
 		
 	}
 	
@@ -67,6 +69,24 @@ public class HomeController {
 		
 		return "showAliens";
 		
+	}
+	
+	@GetMapping("getAlien")
+	public String getAlien(@RequestParam("aid") String aid, Model m) {
+		System.out.println("searching for alien: " + aid );
+		
+		if(aid.isBlank()) {
+			System.out.println("aid is blank");
+		}else {
+			int axid = Integer.parseInt(aid);	
+			m.addAttribute("result", dao.getAlien(axid));
+		}
+		
+		
+		
+		//m.addAttribute("result", dao.getAliens());
+		
+		return "showAliens";
 	}
 	
 	

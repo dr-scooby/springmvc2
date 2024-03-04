@@ -37,5 +37,29 @@ public class AlienDAO {
 		
 		return aliens;
 	}
+	
+	
+	@Transactional
+	public void addAlien(Alien a) {
+		Session session = sessionfactory.getCurrentSession();
+		session.save(a);
+		
+	}
+	
+	@Transactional
+	public Alien getAlien(int aid) {
+		Session session = sessionfactory.getCurrentSession();
+		Alien a = session.get(Alien.class, aid);
+		return a;
+	}
+	
+	
+	/*
+	@Transactional
+	public Alien getAlien(String name) {
+		Session session = sessionfactory.getCurrentSession();
+		Alien a = session.get(Alien.class, name);
+		return a;
+	}*/
 
 }

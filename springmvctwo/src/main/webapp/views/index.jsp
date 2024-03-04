@@ -23,5 +23,15 @@
 	Enter Alien Name : <input type="text" name="name"><br>
 	<input type="submit">
 </form>
+<br>
+<br>
+
+<h2>Search Alien info:</h2>
+<form action="getAlien">
+	Enter Alien ID : <input type="text" name="aid"><br>
+	
+	<input type="submit">
+</form>
+
 </body>
 </html>
